@@ -1,85 +1,138 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 px-6 py-12 text-white">
+    <footer className="border-t border-[#ead8dd] bg-[#552b38] text-white">
 
-      <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-4">
+      {/* Main Footer */}
+      <div className="mx-auto max-w-7xl px-6 py-16 md:px-8 lg:px-10">
 
-        {/* Brand */}
-        <div>
+        <div className="grid gap-12 md:grid-cols-4">
 
-          <div className="flex items-center gap-2">
+          {/* Brand */}
+          <div className="md:col-span-1">
 
-            <span className="text-3xl">
-              🌸
-            </span>
-
-            <div>
-              <h2 className="text-xl font-bold">
-                Blossom
+            <Link href="/">
+              <h2 className="font-serif text-3xl italic text-[#f9dce5]">
+                Petals & Prose
               </h2>
+            </Link>
 
-              <p className="text-xs tracking-widest text-pink-400">
-                FLOWER SHOP
-              </p>
+            <p className="mt-5 max-w-xs text-sm leading-6 text-[#e8ccd4]">
+              Beautiful flowers, thoughtfully arranged for
+              life's most meaningful moments.
+            </p>
+
+          </div>
+
+          {/* Navigation */}
+          <div>
+
+            <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-[#f6dce4]">
+              Explore
+            </h3>
+
+            <div className="mt-5 flex flex-col gap-3">
+
+              <Link
+                href="/"
+                className="footer-link"
+              >
+                Home
+              </Link>
+
+              <Link
+                href="/shop"
+                className="footer-link"
+              >
+                Shop
+              </Link>
+
+              <Link
+                href="/about"
+                className="footer-link"
+              >
+                About Us
+              </Link>
+
+              <Link
+                href="/contact"
+                className="footer-link"
+              >
+                Contact
+              </Link>
+
             </div>
 
           </div>
 
-          <p className="mt-5 text-sm leading-6 text-gray-400">
-            Beautiful flowers for beautiful moments.
-            We deliver fresh flowers with love.
-          </p>
+          {/* Customer */}
+          <div>
 
-        </div>
+            <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-[#f6dce4]">
+              Customer
+            </h3>
 
-        {/* Shop */}
-        <div>
+            <div className="mt-5 flex flex-col gap-3">
 
-          <h3 className="font-semibold">
-            Shop
-          </h3>
+              <Link
+                href="/bookmarks"
+                className="footer-link"
+              >
+                Saved Flowers
+              </Link>
 
-          <ul className="mt-4 space-y-3 text-sm text-gray-400">
+              <Link
+                href="/cart"
+                className="footer-link"
+              >
+                Shopping Cart
+              </Link>
 
-            <li>Roses</li>
-            <li>Tulips</li>
-            <li>Sunflowers</li>
-            <li>Mixed Bouquets</li>
+              <Link
+                href="/contact"
+                className="footer-link"
+              >
+                Delivery Information
+              </Link>
 
-          </ul>
+              <Link
+                href="/contact"
+                className="footer-link"
+              >
+                Help & Support
+              </Link>
 
-        </div>
+            </div>
 
-        {/* Company */}
-        <div>
+          </div>
 
-          <h3 className="font-semibold">
-            Company
-          </h3>
+          {/* Contact */}
+          <div>
 
-          <ul className="mt-4 space-y-3 text-sm text-gray-400">
+            <h3 className="text-xs font-medium uppercase tracking-[0.2em] text-[#f6dce4]">
+              Visit Us
+            </h3>
 
-            <li>About Us</li>
-            <li>Contact</li>
-            <li>Delivery Information</li>
-            <li>Privacy Policy</li>
+            <div className="mt-5 space-y-3 text-sm text-[#e8ccd4]">
 
-          </ul>
+              <p>
+                Colombo, Sri Lanka
+              </p>
 
-        </div>
+              <p>
+                hello@petalsandprose.com
+              </p>
 
-        {/* Contact */}
-        <div>
+              <p>
+                +94 77 123 4567
+              </p>
 
-          <h3 className="font-semibold">
-            Contact
-          </h3>
+              <p>
+                Mon – Sat · 9AM – 6PM
+              </p>
 
-          <div className="mt-4 space-y-3 text-sm text-gray-400">
-
-            <p>📍 Colombo, Sri Lanka</p>
-            <p>📞 +94 77 123 4567</p>
-            <p>✉️ hello@blossom.lk</p>
+            </div>
 
           </div>
 
@@ -87,8 +140,35 @@ export default function Footer() {
 
       </div>
 
-      <div className="mx-auto mt-10 max-w-7xl border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
-        © 2026 Blossom Flower Shop. All rights reserved.
+      {/* Bottom */}
+      <div className="border-t border-white/10">
+
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-5 text-center text-xs text-[#dcbfc8] md:flex-row md:items-center md:justify-between md:px-8 lg:px-10 md:text-left">
+
+          <p>
+            © {new Date().getFullYear()} Petals & Prose. All rights reserved.
+          </p>
+
+          <div className="flex justify-center gap-5">
+
+            <Link
+              href="/contact"
+              className="transition hover:text-white"
+            >
+              Privacy
+            </Link>
+
+            <Link
+              href="/contact"
+              className="transition hover:text-white"
+            >
+              Terms
+            </Link>
+
+          </div>
+
+        </div>
+
       </div>
 
     </footer>

@@ -26,3 +26,57 @@ body {
 .font-serif {
   font-family: Georgia, "Times New Roman", serif;
 }
+.nav-link {
+  position: relative;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #374151;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #d95c83;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #d95c83;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.mobile-nav-link {
+  border-bottom: 1px solid #ead8dd;
+  padding: 16px 4px;
+  font-family: serif;
+  font-size: 20px;
+  color: #552b38;
+  transition: color 0.2s ease;
+}
+
+.mobile-nav-link:hover {
+  color: #d95c83;
+}
+
+.mobile-nav-link:last-child {
+  border-bottom: none;
+}
+.footer-link {
+  font-size: 14px;
+  color: #e8ccd4;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}

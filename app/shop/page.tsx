@@ -1,5 +1,5 @@
-import { flowers } from "@/data/flowers";
-import FlowerCard from "@/components/FlowerCard";
+import { Suspense } from "react";
+import ShopContent from "@/components/ShopContent";
 
 export default function ShopPage() {
   return (
@@ -15,6 +15,7 @@ export default function ShopPage() {
           </p>
 
           <div className="mx-auto mt-4 flex items-center justify-center gap-3">
+
             <span className="h-px w-12 bg-[#e8b4c2]" />
 
             <span className="text-sm text-[#d95c83]">
@@ -22,6 +23,7 @@ export default function ShopPage() {
             </span>
 
             <span className="h-px w-12 bg-[#e8b4c2]" />
+
           </div>
 
           <h1 className="mt-4 font-serif text-4xl text-[#292326] md:text-5xl">
@@ -35,42 +37,15 @@ export default function ShopPage() {
 
         </div>
 
-        {/* Categories */}
-        <div className="mb-10 flex flex-wrap justify-center gap-3">
-
-          <button className="rounded-full bg-[#d95c83] px-5 py-2 text-xs text-white">
-            All Flowers
-          </button>
-
-          <button className="rounded-full border border-[#e8cbd3] bg-white px-5 py-2 text-xs text-[#552b38] transition hover:bg-[#fff0f4]">
-            Roses
-          </button>
-
-          <button className="rounded-full border border-[#e8cbd3] bg-white px-5 py-2 text-xs text-[#552b38] transition hover:bg-[#fff0f4]">
-            Tulips
-          </button>
-
-          <button className="rounded-full border border-[#e8cbd3] bg-white px-5 py-2 text-xs text-[#552b38] transition hover:bg-[#fff0f4]">
-            Sunflowers
-          </button>
-
-          <button className="rounded-full border border-[#e8cbd3] bg-white px-5 py-2 text-xs text-[#552b38] transition hover:bg-[#fff0f4]">
-            Lilies
-          </button>
-
-        </div>
-
-        {/* Flowers */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-
-          {flowers.map((flower) => (
-            <FlowerCard
-              key={flower.id}
-              flower={flower}
-            />
-          ))}
-
-        </div>
+        <Suspense
+          fallback={
+            <div className="py-20 text-center text-sm text-gray-500">
+              Loading flowers...
+            </div>
+          }
+        >
+          <ShopContent />
+        </Suspense>
 
       </div>
 
