@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[680px] overflow-hidden">
+   <section className="relative min-h-[720px] overflow-hidden">
 
       {/* Hero Image */}
       <div

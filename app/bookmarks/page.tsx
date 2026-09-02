@@ -1,5 +1,4 @@
-import { flowers } from "@/data/flowers";
-import FlowerCard from "@/components/FlowerCard";
+import BookmarksContent from "./BookmarksContent";
 
 export default function BookmarksPage() {
   return (
@@ -30,24 +29,15 @@ export default function BookmarksPage() {
             Your Bookmarks
           </h1>
 
-          <p className="mx-auto mt-4 max-w-xl text-sm text-gray-600">
-            Keep your favorite flowers close and come back to them
-            whenever you're ready.
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-gray-600">
+            Keep your favorite flowers close and come back
+            to them whenever you're ready.
           </p>
 
         </div>
 
-        {/* Temporary display */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-
-          {flowers.slice(0, 4).map((flower) => (
-            <FlowerCard
-              key={flower.id}
-              flower={flower}
-            />
-          ))}
-
-        </div>
+        {/* Bookmark content */}
+        <BookmarksContent />
 
       </div>
 

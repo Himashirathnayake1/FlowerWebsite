@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Blossom Flower Shop",
+  title: "Petals & Prose | Artisan Floristry",
   description: "Beautiful flowers for every special moment.",
 };
 

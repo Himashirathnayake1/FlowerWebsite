@@ -55,7 +55,7 @@ export const flowers: Flower[] = [
     description:
       "A colorful combination of fresh seasonal flowers.",
     price: 6500,
-    image: "/images/flowers/mixedt.png",
+    image: "/images/flowers/mixed.png",
     category: "Mixed",
     rating: 4.9,
     stock: 8,
