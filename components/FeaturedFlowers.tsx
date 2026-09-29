@@ -1,9 +1,17 @@
+"use client";
+
 import Link from "next/link";
-import { flowers } from "@/data/flowers";
+import { useEffect, useState } from "react";
+import { getFlowers } from "@/lib/api";
+import { Flower } from "@/models/Flower";
 import FlowerCard from "./FlowerCard";
 
 export default function FeaturedFlowers() {
-  const featuredFlowers = flowers.slice(0, 4);
+  const [featuredFlowers, setFeaturedFlowers] = useState<Flower[]>([]);
+
+  useEffect(() => {
+    getFlowers().then((flowers) => setFeaturedFlowers(flowers.slice(0, 4)));
+  }, []);
 
   return (
     <section className="bg-[#fffaf8] px-6 py-20 md:py-24">

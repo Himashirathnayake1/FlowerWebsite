@@ -1,10 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-import { flowers } from "@/data/flowers";
 import FlowerCard from "@/components/FlowerCard";
+import { getFlowers } from "@/lib/api";
+import { Flower } from "@/models/Flower";
 
 const categories = [
   "All Flowers",
@@ -20,9 +21,15 @@ export default function ShopContent() {
 
   const urlCategory = searchParams.get("category");
 
-  const [selectedCategory, setSelectedCategory] = useState(
-    urlCategory || "All Flowers"
-  );
+  const [selectedCategory, setSelectedCategory] = useState(urlCategory || "All Flowers");
+  const [flowers, setFlowers] = useState<Flower[]>([]);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    getFlowers()
+      .then(setFlowers)
+      .catch(() => setError(true));
+  }, []);
 
   const filteredFlowers = useMemo(() => {
     if (selectedCategory === "All Flowers") {
@@ -34,7 +41,7 @@ export default function ShopContent() {
         flower.category?.toLowerCase() ===
         selectedCategory.toLowerCase()
     );
-  }, [selectedCategory]);
+  }, [flowers, selectedCategory]);
 
   return (
     <>
@@ -75,7 +82,11 @@ export default function ShopContent() {
       </div>
 
       {/* Flowers */}
-      {filteredFlowers.length > 0 ? (
+      {error ? (
+        <div className="rounded-3xl border border-[#f0dfe3] bg-white px-6 py-20 text-center text-sm text-gray-500">
+          We could not load the flowers right now. Please try again shortly.
+        </div>
+      ) : filteredFlowers.length > 0 ? (
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
@@ -101,7 +112,7 @@ export default function ShopContent() {
           </h2>
 
           <p className="mt-2 text-sm text-gray-500">
-            We don't have flowers in this category yet.
+            We don&apos;t have flowers in this category yet.
           </p>
 
         </div>

@@ -73,6 +73,8 @@ export default function Navbar() {
 
             <BookmarkNav />
 
+            <Link href="/auth" className="text-[10px] font-medium uppercase tracking-wider text-gray-700 transition hover:text-[#c4476d]">Account</Link>
+
             <Link
               href="/cart"
               className="flex items-center gap-2 text-gray-700 transition hover:text-[#c4476d]"

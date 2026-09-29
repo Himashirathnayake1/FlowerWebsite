@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { Flower } from "@/models/Flower";
 import BookmarkButton from "./BookmarkButton";
+import AddToCartButton from "./AddToCartButton";
 
 interface FlowerCardProps {
   flower: Flower;
@@ -59,6 +60,8 @@ export default function FlowerCard({
           </span>
 
         </div>
+
+        <AddToCartButton flowerId={flower.id} />
 
       </div>
 
